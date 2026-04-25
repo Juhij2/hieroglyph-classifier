@@ -10,8 +10,8 @@ This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardi
 
 ## Features
 
-- **Single Sign Mode** — upload one hieroglyph image, get the Gardiner code + confidence score + top 5 predictions
-- **Papyrus Column Mode** — upload a full column from a papyrus manuscript, auto-detect individual signs, classify each one, and list results top to bottom
+- **Single Sign Mode** - upload one hieroglyph image, get the Gardiner code + confidence score + top 5 predictions
+- **Papyrus Column Mode** - upload a full column from a papyrus manuscript, auto-detect individual signs, classify each one, and list results top to bottom
 
 ## Model
 
@@ -26,7 +26,7 @@ This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardi
 
 ## Dataset
 
-Based on the GlyphReader corpus (Franken & van Gemert, 2013), as used in Barucci et al. (2021). Source: `HamdiJr/Egyptian_hieroglyphs` on HuggingFace — manually annotated hieroglyph images labeled according to the Gardiner Sign List.
+Based on the GlyphReader corpus (Franken & van Gemert, 2013), as used in Barucci et al. (2021). Source: `HamdiJr/Egyptian_hieroglyphs` on HuggingFace, manually annotated hieroglyph images labeled according to the Gardiner Sign List.
 
 ## Detection Pipeline
 
@@ -40,13 +40,13 @@ This approach is consistent with the segmentation method used in Barucci et al. 
 
 ## Limitations
 
-- Classifier was trained on clean, isolated sign images — confidence is lower on real manuscript images due to the domain gap between training data and aged papyri
+- Classifier was trained on clean, isolated sign images. Confidence is lower on real manuscript images due to the domain gap between training data and aged papyri.
 - Covers 170 of 750+ total Gardiner signs
 - Detection works best on clear, high-contrast manuscript columns
 
 ## Research Context
 
-This project is part of broader work on computational Egyptology, including NER on ancient Egyptian demonological texts (DemonThings/DemonBase) and Arabic NLP pipelines for archival documents. The domain gap between clean training images and real papyri represents the core open research problem — fine-tuning on annotated manuscript data (e.g., PapyrusVision, OCR-PT-CT) is the proposed next step.
+This project is part of broader work on computational Egyptology, including NER on ancient Egyptian demonological texts (DemonThings/DemonBase) and Arabic NLP pipelines for archival documents. The domain gap between clean training images and real papyri represents the core open research problem. Fine-tuning on annotated manuscript data (e.g., PapyrusVision, OCR-PT-CT) is the proposed next step.
 
 ## Stack
 
