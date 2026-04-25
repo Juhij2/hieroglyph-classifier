@@ -8,6 +8,12 @@ An end-to-end deep learning pipeline for detecting and classifying ancient Egypt
 
 This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardiner sign categories, achieving **91.8% validation accuracy** on clean sign images. It also includes a full papyrus pipeline that detects individual signs from a manuscript column image using OpenCV contour analysis and classifies each one.
 
+## Demo
+
+| Single Sign Mode | Papyrus Column Mode |
+|---|---|
+| ![Single sign classification](single_sign.jpg) | ![Papyrus column detection](papyrus.jpg) |
+
 ## Features
 
 - **Single Sign Mode** - upload one hieroglyph image, get the Gardiner code + confidence score + top 5 predictions
