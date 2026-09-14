@@ -98,12 +98,12 @@ if mode == "Single Sign":
             elif top_prob > 0.5:
                 st.warning("Moderate confidence")
             else:
-                st.error("Low confidence — image may be unclear")
+                st.error("Low confidence: the image may be unclear")
             st.markdown("#### Top 5 Predictions")
             for prob, idx in zip(top5_probs[0], top5_idx[0]):
                 label = idx_to_label[str(idx.item())]
                 pct = prob.item() * 100
-                st.progress(int(pct), text=f"`{label}` — {pct:.1f}%")
+                st.progress(int(pct), text=f"`{label}`: {pct:.1f}%")
 
 else:
     uploaded_file = st.file_uploader("Upload a papyrus column image", type=["png", "jpg", "jpeg"])
@@ -141,7 +141,7 @@ else:
                 for i, (x, y, bw, bh, label, conf, top5) in enumerate(results_sorted):
                     conf_color = "🟢" if conf > 0.5 else "🟡" if conf > 0.3 else "🔴"
                     meaning = SIGN_INFO.get(label, "")
-                    st.markdown(f"{conf_color} **{label}** {f'— {meaning}' if meaning else ''} `{conf*100:.0f}%`")
+                    st.markdown(f"{conf_color} **{label}** {f'({meaning})' if meaning else ''} `{conf*100:.0f}%`")
 
                 high = [r for r in results if r[5] > 0.5]
                 st.markdown("---")
