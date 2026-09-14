@@ -6,7 +6,7 @@ An end-to-end deep learning pipeline for detecting and classifying ancient Egypt
 
 ## Overview
 
-This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardiner sign categories, achieving **91.8% validation accuracy** on clean sign images. It also includes a full papyrus pipeline that detects individual signs from a manuscript column image using OpenCV contour analysis and classifies each one.
+This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardiner sign categories. On a **held-out page of the Pyramid of Unas that is never used in training**, it reaches **86.0% accuracy (94.6% top-5)**. It also includes a full papyrus pipeline that detects individual signs from a manuscript column image using OpenCV contour analysis and classifies each one.
 
 ## Demo
 
@@ -26,9 +26,20 @@ This project fine-tunes a ResNet-50 model to classify hieroglyphs into 170 Gardi
 | Architecture | ResNet-50 (pretrained on ImageNet, fine-tuned) |
 | Training images | 3,584 |
 | Gardiner classes | 170 |
-| Validation accuracy | 91.8% |
+| Accuracy on held-out page (top-1) | **86.0%** (382 of 444 signs) |
+| Accuracy on held-out page (top-5) | 94.6% |
+| Validation accuracy (random split of training pages) | 91.8%, from the original Colab run; the split was not seeded and the log was not saved |
 | Training epochs | 15 |
 | Device | GPU (Google Colab T4) |
+
+## Evaluation
+
+The dataset ships a separate test folder: picture 7 of Piankoff's *The Pyramid of Unas*, a page none of the training images come from. Scoring on it is a stricter test than a random validation split, because neighboring signs on the same photograph share lighting, carving style, and scale. Of its 455 images, 11 carry labels outside the 170 training classes; the other 444 are scored.
+
+```bash
+git clone https://huggingface.co/datasets/HamdiJr/Egyptian_hieroglyphs
+python evaluate_heldout_page.py --test-dir Egyptian_hieroglyphs/Dataset/test
+```
 
 ## Dataset
 

@@ -148,4 +148,4 @@ else:
                 st.markdown(f"**Summary:** {len(results)} signs detected, {len(high)} high confidence (>50%)")
 
 st.markdown("---")
-st.markdown("**Model:** ResNet-50 | **Accuracy:** 91.8% on clean images | **Classes:** 170 Gardiner signs | **Detection:** OpenCV contour analysis")
+st.markdown("**Model:** ResNet-50 | **Accuracy:** 86.0% on a held-out page not used in training (94.6% top-5) | **Classes:** 170 Gardiner signs | **Detection:** OpenCV contour analysis")
